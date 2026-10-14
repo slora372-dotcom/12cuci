@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.i1malaysia.online/sitemap.xml
+Sitemap: https://www.12cuci.site/sitemap.xml
