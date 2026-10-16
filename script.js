@@ -8,16 +8,19 @@
 
   // ---------- Brand ----------
   // Logo and badge sit at the top of the page, so they load straight away.
-  $("logo").innerHTML = `<img src="${esc(S.brand.logo)}" alt="${esc(S.brand.name)}" width="1309" height="590">`;
+  $("logo").innerHTML = `<img src="${esc(S.brand.logo)}" alt="${esc(S.brand.name)}" width="300" height="135">`;
   $("partner").innerHTML = `<img src="${esc(S.brand.partner.img)}" alt="${esc(S.brand.partner.name)}" width="458" height="226">`;
   $("marquee").textContent = S.announcement;
   $("copyright").textContent = S.copyright;
 
-  // Buttons and nav icons on the first screen show a still image first; their
-  // large animated GIFs are swapped in once everything else has loaded.
-  window.addEventListener("load", () => {
+  // Images on the first screen show a still frame first. Their animated GIFs
+  // (several MB in total) load when the visitor first scrolls or touches the
+  // page, so they never compete with the main banner on a slow connection.
+  const animate = () => {
+    ["scroll", "touchstart", "pointerdown", "mousemove", "keydown"].forEach((t) => window.removeEventListener(t, animate));
     document.querySelectorAll("img[data-anim]").forEach((el) => { el.src = el.dataset.anim; });
-  });
+  };
+  ["scroll", "touchstart", "pointerdown", "mousemove", "keydown"].forEach((t) => window.addEventListener(t, animate, { passive: true }));
 
   // ---------- Carousel ----------
   const track = $("carouselTrack");
