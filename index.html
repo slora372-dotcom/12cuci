@@ -31,7 +31,9 @@
     <div class="marquee" aria-label="Announcement"><span id="marquee"></span></div>
 
     <section class="carousel" aria-label="Promotions">
-      <div class="carousel-track" id="carouselTrack"></div>
+      <!-- First banner is written here (not only by script.js) so it appears
+           with the first paint and the page below it never jumps. -->
+      <div class="carousel-track" id="carouselTrack"><a class="slide" href="https://ppg668.cam/register.php?r=BMMTH"><img src="assets/12cuci/banners/banner-1.jpg" alt="12Cuci promotion 1" width="1000" height="403" fetchpriority="high"></a></div>
       <div class="carousel-dots" id="carouselDots"></div>
     </section>
 
@@ -45,9 +47,9 @@
     <section class="wallet">
       <div class="wallet-info">
         <p class="wallet-label">Baki:</p>
-        <p class="wallet-amount" id="balance"></p>
-        <p>Deposit Minimum: <b id="minDeposit"></b></p>
-        <p>Withdraw Minimum: <b id="minWithdrawal"></b></p>
+        <p class="wallet-amount" id="balance">RM0.00</p>
+        <p>Deposit Minimum: <b id="minDeposit">RM1.00</b></p>
+        <p>Withdraw Minimum: <b id="minWithdrawal">RM25.00</b></p>
       </div>
       <div class="wallet-actions">
         <a class="img-btn" data-link="deposit"><img src="assets/12cuci/still/btn-deposit.png" data-anim="assets/12cuci/btn-deposit.gif" alt="Deposit" width="300" height="94"></a>
